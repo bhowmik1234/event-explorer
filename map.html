@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello Photorealistic 3D Maps in Maps JavaScript</title>
+    <link href="./mapstyle.css" rel="stylesheet" />
+
+    <style>
+      html,
+      body {
+        height:100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="flex-container">
+      <div id="sidebar">
+        <div class="toggle-container">
+          <button class="toggle-button active" onclick="showCategory('events')">
+            <div class="button-content">
+              <span class="button-text">Events</span>
+            </div>
+          </button>
+          <button class="toggle-button" onclick="showCategory('hackathons')">
+            <div class="button-content">
+              <span class="button-text">Hackathons</span>
+            </div>
+          </button>
+        </div>
+        
+        <h2>Locations</h2>
+        
+        <div id="events-locations" class="location-list">
+          <button class="location-button" onclick="showLocation('Columbia University', 40.80816395, -73.96218685)">
+            <div class="location-info">
+              <img src="https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/003/020/931/datas/medium_square.jpg" alt="Columbia University" class="location-image">
+              <div class="location-details">
+                <h3 class="location-name">HackUNCP 2024</h3>
+                <p class="location-date">November 15, 2023</p>
+              </div>
+            </div>
+          </button>
+
+         
+
+          <button class="location-button" onclick="showLocation('Columbia University', 40.72927185000001, -73.99674225000001)">
+            <div class="location-info">
+              <img src="https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/003/034/787/datas/medium_square.png" alt="Columbia University" class="location-image">
+              <div class="location-details">
+                <h3 class="location-name">hackUMBC Fall 2024</h3>
+                <p class="location-date">November 15, 2023</p>
+              </div>
+            </div>
+          </button>
+          
+          <!-- Additional location buttons... -->
+        </div>
+        
+        <div id="hackathons-locations" class="location-list hidden">
+          <button class="location-button" onclick="showLocation('Columbia University', 42.45015615, -76.47595755)">
+            <div class="location-info">
+              <img src="https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/003/020/931/datas/medium_square.jpg" alt="Columbia University" class="location-image">
+              <div class="location-details">
+                <h3 class="location-name">HackUNCP 2024</h3>
+                <p class="location-date">November 15, 2023</p>
+              </div>
+            </div>
+          </button>
+
+          <button class="location-button" onclick="showLocation('Columbia University', 40.861690149999994, -73.8857707)">
+            <div class="location-info">
+              <img src="https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/003/092/858/datas/medium_square.png" alt="Columbia University" class="location-image">
+              <div class="location-details">
+                <h3 class="location-name">BevHacks 2025</h3>
+                <p class="location-date">November 15, 2023</p>
+              </div>
+            </div>
+          </button>
+
+          <button class="location-button" onclick="showLocation('Columbia University', 40.7417838, -73.98596075)">
+            <div class="location-info">
+              <img src="https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/002/924/909/datas/medium_square.png" alt="Columbia University" class="location-image">
+              <div class="location-details">
+                <h3 class="location-name">ZenHack 2024</h3>
+                <p class="location-date">November 15, 2023</p>
+              </div>
+            </div>
+          </button>
+
+          <button class="location-button" onclick="showLocation('Columbia University', 40.80816395, -73.96218685)">
+            <div class="location-info">
+              <img src="https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/003/120/802/datas/medium_square.png" alt="Columbia University" class="location-image">
+              <div class="location-details">
+                <h3 class="location-name">TAMU Datathon 2024</h3>
+                <p class="location-date">November 15, 2023</p>
+              </div>
+            </div>
+          </button>
+
+          <button class="location-button" onclick="showLocation('Columbia University', 40.72927185000001, -73.99674225000001)">
+            <div class="location-info">
+              <img src="https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/003/034/787/datas/medium_square.png" alt="Columbia University" class="location-image">
+              <div class="location-details">
+                <h3 class="location-name">hackUMBC Fall 2024</h3>
+                <p class="location-date">November 15, 2023</p>
+              </div>
+            </div>
+          </button>
+          
+          <!-- Additional location buttons... -->
+        </div>
+      </div>
+      
+      <div id="map-container"></div>
+    </div>
+
+      <!-- Popup Box -->
+<!-- Popup Overlay and Popup -->
+<div id="popupOverlay" class="popup-overlay hidden">
+  <div class="popup" id="popup">
+    <button class="close-btn" onclick="closePopup()">×</button>
+    <img src="https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/003/034/787/datas/medium_square.png" alt="ZenHack 2024" class="header-image">
+    
+    <h1 class="title">ZenHack 2024</h1>
+    <p class="subtitle">Empowering the next generation of high school innovators</p>
+
+    <div class="section">
+      <div class="section-title">
+        <span>📋 About</span>
+      </div>
+      <p style="color: #d4d4d8; line-height: 1.6;">
+        We're Zenith, an organization dedicated to promoting the next generation of innovators. This hackathon is designed to give high school students a hands-on experience in building real-world projects, guided by industry professional mentors. Join us for an exciting weekend of coding, creativity, and free food!
+      </p>
+    </div>
+
+    <div class="section">
+      <div class="section-title">
+        <span>🎯 Event Details</span>
+      </div>
+      <div class="info-grid">
+        <div class="info-item">
+          <div class="info-label">Date</div>
+          <div class="info-value">March 15-17, 2024</div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">Duration</div>
+          <div class="info-value">48 Hours</div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">Format</div>
+          <div class="info-value">In-person</div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">Team Size</div>
+          <div class="info-value">2-4 members</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add more sections as needed -->
+
+    <button class="join-button" onclick="joinHackathon()">Join ZenHack 2024</button>
+  </div>
+</div>
+
+<!-- <button class="show-popup-btn" onclick="showPopup()">Show Popup</button> -->
+
+      
+        
+
+    <!-- <div class="pac-card" id="pac-card">
+      <div id="title">Navigate to a place</div>
+      <div id="pac-container">
+        <input class="pac-input" type="text" id="pac-input" name="pac-input" placeholder="Enter a location..." />
+      </div>
+    </div>  -->
+    <!-- <div id="place-details" style="display: none;"></div> -->
+
+<script>
+    (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
+      key: "AIzaSyC3txE9pHsc0aGdlvZTxfm6dMwsKsZGl1w",
+      v: "alpha",
+      // Use the 'v' parameter to indicate the version to use (weekly, beta, alpha, etc.).
+      // Add other bootstrap parameters as needed, using camel case.
+    });
+  </script> 
+
+    <script src="./main.js"></script>
+  </body>
+</html>

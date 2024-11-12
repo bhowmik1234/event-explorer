@@ -1,0 +1,189 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    margin: 0;
+    overflow: hidden;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-color: #000;
+}
+
+canvas {
+    display: block;
+}
+
+
+
+/* Centered overlay container styling */
+.overlay-container {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -20%);
+    text-align: center;
+    color: #71717A; /* zinc-500 */
+    padding: 40px;
+    max-width: 800px;
+    width: 100%;
+    /* background: rgba(0, 0, 0, 0.5); Semi-transparent background */
+    /* backdrop-filter: blur(8px); Slight blur effect */
+    /* border: 1px solid rgba(113, 113, 122, 0.2); zinc-500 */
+    border-radius: 24px;
+    z-index: 1; /* Ensure it stays above the canvas */
+}
+
+/* Title styling */
+.title {
+    font-size: 72px;
+    font-weight: 800;
+    line-height: 0.9;
+    margin-bottom: 20px;
+    background: linear-gradient(180deg, #ffffff, #71717A); /* white to zinc-500 */
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .title span{
+    font-size: 46px;
+  }
+
+/* Subtitle styling */
+.subtitle {
+    font-size: 13px;
+    color: #A1A1AA; /* zinc-400 */
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+/* Country selector styling */
+.country-selector {
+    margin-bottom: 30px;
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.country-selector select {
+    width: 50%;
+    padding: 10px 14px;
+    border-radius: 16px;
+    border: 1px solid #27272A;
+    background: rgba(39, 39, 42, 0.8); 
+    color: #E4E4E7; 
+    font-size: 12px;
+    appearance: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.country-selector select:hover {
+    border-color: #84cc16; /* lime-500 */
+    background: rgba(39, 39, 42, 0.9); /* zinc-800 with more opacity */
+}
+
+.country-selector select:focus {
+    outline: none;
+    border-color: #84cc16; /* lime-500 */
+    box-shadow: 0 0 0 2px rgba(132, 204, 22, 0.2); /* lime-500 with transparency */
+}
+
+/* Button group styling */
+.button-group {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.button {
+    padding: 10px 22px;
+    border-radius: 12px;
+    font-size: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.primary-button {
+    background: #84cc16; /* lime-500 */
+    color: #18181B; /* zinc-900 */
+    border: none;
+}
+
+
+.button:hover {
+    transform: translateY(-2px);
+}
+
+.primary-button:hover {
+    background: #65a30d; /* lime-600 */
+    box-shadow: 0 4px 12px rgba(132, 204, 22, 0.3); /* lime-500 */
+}
+
+/* Custom select arrow */
+.country-selector::after {
+    content: '▼';
+    font-size: 12px;
+    color: #84cc16; /* lime-500 */
+    position: absolute;
+    right: 115px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+/* Option styling */
+select option {
+    background: #18181B; /* zinc-900 */
+    color: #E4E4E7; /* zinc-200 */
+    padding: 12px;
+}
+
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 4rem;
+    background: rgba(24, 24, 27, 0.8); /* zinc-900 with transparency */
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(113, 113, 122, 0.1);
+    z-index: 1000;
+  }
+
+  .logo-text {
+    font-size: 24px;
+    font-weight: 700;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  .globe-icon {
+    width: 32px;
+    height: 32px;
+    fill: #ffffff;
+    animation: rotate 20s linear infinite;
+  }
+
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
