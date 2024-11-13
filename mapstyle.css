@@ -1,4 +1,31 @@
-/* Ensure flex layout and full height */
+:root {
+  --dark-zinc: #1a1a1a;
+  /* Deep blackened gray for main backgrounds */
+  --light-zinc: #e6e6e6;
+  /* Soft light gray for text and subtle highlights */
+  --yellow: #ffb703;
+  /* Vibrant amber yellow for accents and buttons */
+  --light-yellow: #fb8500;
+  /* Bold orange for highlights and interactive elements */
+  --dark-gray: #333333;
+  /* Deep charcoal for containers and section backgrounds */
+  --gray-700: #264653;
+  /* Dark teal for subtle highlights */
+  --gray-800: #2a9d8f;
+  /* Vibrant jade green for active states or icons */
+  --gray-900: #18181b;
+  /* Almost black for main background */
+  --dark-black: #0f0f0f;
+  /* Solid black for the deepest backgrounds */
+  --gray-600: #8d99ae;
+  /* Muted blue-gray for borders and less prominent text */
+  --gray-400: #d4d4d4;
+  /* Light gray for primary text */
+  --gray-500: #edf2f4;
+  /* Off-white for headers and strong highlights */
+}
+
+
 html,
 body {
   height: 100%;
@@ -18,8 +45,10 @@ body {
 
 #sidebar {
   width: 300px;
-  background-color: #1a1a1a; /* Dark zinc/black shade */
-  color: #d4d4d4; /* Light zinc for text */
+  background-color: var(--dark-zinc);
+  /* Dark zinc/black shade */
+  color: var(--light-zinc);
+  /* Light zinc for text */
   padding: 20px;
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
   display: flex;
@@ -34,10 +63,10 @@ body {
 }
 
 .toggle-button {
-  background-color: #333333;
+  background-color: var(--dark-gray);
   border: 2px solid transparent;
   border-radius: 8px;
-  color: #c7ff1e;
+  color: var(--yellow);
   padding: 12px;
   font-size: 14px;
   cursor: pointer;
@@ -50,14 +79,14 @@ body {
 }
 
 .toggle-button.active {
-  background-color: #c7ff1e;
-  color: #1a1a1a;
-  border-color: #c7ff1e;
+  background-color: var(--yellow);
+  color: var(--dark-zinc);
+  border-color: var(--yellow);
 }
 
 .toggle-button:hover {
-  background-color: #c7ff1e;
-  color: #1a1a1a;
+  background-color: var(--yellow);
+  color: var(--dark-zinc);
 }
 
 .button-content {
@@ -81,10 +110,10 @@ body {
 }
 
 .location-button {
-  background-color: #333333;
-  border: 2px solid #c7ff1e;
+  background-color: var(--dark-gray);
+  border: 2px solid var(--yellow);
   border-radius: 8px;
-  color: #d4d4d4;
+  color: var(--light-zinc);
   padding: 10px 14px;
   margin: 10px 0;
   font-size: 12px;
@@ -97,8 +126,8 @@ body {
 }
 
 .location-button:hover {
-  background-color: #c7ff1e;
-  color: #1a1a1a;
+  background-color: var(--yellow);
+  color: var(--dark-zinc);
 }
 
 .location-info {
@@ -125,7 +154,7 @@ body {
 
 .location-date {
   font-size: 12px;
-  color: #a0a0a0;
+  color: var(--gray-600);
   margin-bottom: 8px;
 }
 
@@ -153,7 +182,6 @@ body {
 }
 
 /* Popup styles */
-
 .popup-overlay {
   position: fixed;
   top: 0;
@@ -169,7 +197,7 @@ body {
 
 .popup {
   position: relative;
-  background-color: #18181b;
+  background-color: var(--gray-900);
   color: #fff;
   padding: 32px;
   border-radius: 16px;
@@ -178,6 +206,8 @@ body {
   max-height: 85vh;
   overflow-y: auto;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
 }
 
 .hidden {
@@ -185,8 +215,6 @@ body {
 }
 
 /* Other CSS styles remain the same */
-
-
 .header-image {
   width: 100%;
   height: 200px;
@@ -196,33 +224,38 @@ body {
 }
 
 .title {
-  font-size: 32px;
+  font-size: 36px;
   font-weight: 800;
-  color: #84cc16;
+  color: var(--light-yellow);
   margin-bottom: 16px;
+  font-family: 'Nunito', sans-serif;
 }
 
 .subtitle {
-  font-size: 18px;
-  color: #d4d4d8;
+  font-size: 16px;
+  color: var(--light-zinc);
   margin-bottom: 32px;
+  font-family: 'Nunito', sans-serif;
 }
 
 .section {
   margin-bottom: 32px;
   padding: 24px;
-  background-color: #27272a;
+  background-color: var(--dark-gray);
   border-radius: 12px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
 }
 
 .section-title {
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 600;
-  color: #84cc16;
+  color: var(--light-yellow);
   margin-bottom: 16px;
   display: flex;
   align-items: center;
   gap: 8px;
+  font-family: 'Nunito', sans-serif;
 }
 
 .info-grid {
@@ -230,61 +263,60 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 16px;
   margin-bottom: 24px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
 }
 
 .info-item {
   padding: 16px;
-  background-color: #3f3f46;
+  background-color: var(--dark-zinc);
   border-radius: 8px;
   font-size: 14px;
+  font-family: 'Nunito', sans-serif;
 }
 
 .info-label {
-  color: #84cc16;
+  color: var(--light-yellow);
   font-weight: 600;
   margin-bottom: 4px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
 }
 
 .info-value {
-  color: #d4d4d8;
+  color: var(--light-zinc);
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
 }
 
 .eligibility-list {
   list-style: none;
   padding: 0;
   margin: 0;
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
 }
 
 .eligibility-item {
   margin-bottom: 12px;
   padding-left: 24px;
   position: relative;
-  color: #d4d4d8;
-}
-
-.eligibility-item:before {
-  content: "✓";
-  color: #84cc16;
-  position: absolute;
-  left: 0;
+  color: var(--light-zinc);
+  font-family: 'Nunito', sans-serif;
 }
 
 .join-button {
   width: 100%;
-  background-color: #84cc16;
-  color: #000000;
+  background-color: var(--light-yellow);
+  color: var(--dark-black);
   border: none;
   padding: 16px;
   border-radius: 8px;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
-}
-
-.join-button:hover {
-  background-color: #65a30d;
-  transform: translateY(-2px);
+  font-family: 'Nunito', sans-serif;
 }
 
 .close-btn {
@@ -293,17 +325,14 @@ body {
   right: 16px;
   background: none;
   border: none;
-  color: #a1a1aa;
+  color: var(--gray-400);
   font-size: 24px;
   cursor: pointer;
   transition: color 0.2s ease;
   padding: 8px;
   line-height: 1;
   z-index: 1001;
-}
-
-.close-btn:hover {
-  color: #84cc16;
+  font-family: 'Nunito', sans-serif;
 }
 
 .timeline {
@@ -311,57 +340,48 @@ body {
   justify-content: space-between;
   margin-top: 16px;
   padding: 20px 0;
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
 }
 
 .timeline-item {
   text-align: center;
   flex: 1;
   position: relative;
-}
-
-.timeline-item:not(:last-child):after {
-  content: "";
-  position: absolute;
-  top: 20px;
-  right: -50%;
-  width: 100%;
-  height: 2px;
-  background-color: #3f3f46;
+  font-family: 'Nunito', sans-serif;
 }
 
 .timeline-date {
-  font-size: 14px;
-  color: #84cc16;
+  font-size: 16px;
+  color: var(--light-yellow);
   margin-bottom: 8px;
+  font-family: 'Nunito', sans-serif;
 }
 
 .timeline-label {
-  font-size: 12px;
-  color: #d4d4d8;
+  font-size: 14px;
+  color: var(--light-zinc);
+  font-family: 'Nunito', sans-serif;
 }
 
-/* Show popup button styles */
 .show-popup-btn {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: #84cc16;
-  color: #000000;
+  background-color: var(--light-yellow);
+  color: var(--dark-black);
   border: none;
   padding: 12px 24px;
   border-radius: 8px;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
-}
-
-.show-popup-btn:hover {
-  background-color: #65a30d;
+  font-family: 'Nunito', sans-serif;
 }
 
 @media (max-width: 640px) {
   .info-grid {
-      grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
   }
 }
