@@ -72,7 +72,7 @@ canvas {
 }
 
 .country-selector select {
-    width: 50%;
+    width: 100%;
     padding: 10px 14px;
     border-radius: 16px;
     border: 1px solid #27272A;
@@ -84,8 +84,8 @@ canvas {
     transition: all 0.3s ease;
 }
 
-.country-selector select:hover {
-    border-color: #84cc16; /* lime-500 */
+.country-selector select {
+    border-color: #fb8500; /* lime-500 */
     background: rgba(39, 39, 42, 0.9); /* zinc-800 with more opacity */
 }
 
@@ -114,7 +114,7 @@ canvas {
 }
 
 .primary-button {
-    background: #84cc16; /* lime-500 */
+    background: #fb8500; /* lime-500 */
     color: #18181B; /* zinc-900 */
     border: none;
 }
@@ -125,7 +125,6 @@ canvas {
 }
 
 .primary-button:hover {
-    background: #65a30d; /* lime-600 */
     box-shadow: 0 4px 12px rgba(132, 204, 22, 0.3); /* lime-500 */
 }
 
@@ -133,9 +132,9 @@ canvas {
 .country-selector::after {
     content: '▼';
     font-size: 12px;
-    color: #84cc16; /* lime-500 */
+    color: #fb8500; /* lime-500 */
     position: absolute;
-    right: 115px;
+    right: 20px;
     top: 50%;
     transform: translateY(-50%);
     pointer-events: none;
@@ -158,7 +157,7 @@ select option {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 4rem;
-    background: rgba(24, 24, 27, 0.8); /* zinc-900 with transparency */
+    background: transparent;
     backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(113, 113, 122, 0.1);
     z-index: 1000;
@@ -166,9 +165,8 @@ select option {
 
   .logo-text {
     font-size: 24px;
-    font-weight: 700;
+    font-weight: 500;
     color: #ffffff;
-    text-transform: uppercase;
     letter-spacing: 2px;
   }
 

@@ -3,10 +3,17 @@
 
 <head>
   <title>Hello Photorealistic 3D Maps in Maps JavaScript</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap" rel="stylesheet" />
   <link href="./mapstyle.css" rel="stylesheet" />
+
+  <!-- ubantu -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+    rel="stylesheet" />
 
   <style>
     html,
@@ -19,25 +26,38 @@
 </head>
 
 <body>
+  <nav class="navbar">
+    <div class="logo-text">Eveplora ✨</div>
+    <ul class="nav-tabs">
+      <li><a href="#home">Find</a></li>
+      <li><a href="#about">Project</a></li>
+      <li><a href="hack.html">HackIdeas</a></li>
+    </ul>
+    <svg class="globe-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
+    </svg>
+  </nav>
+
   <div class="flex-container">
     <div id="sidebar">
       <div class="toggle-container">
-        <button class="toggle-button active" onclick="showCategory('events')">
+        <button class="toggle-button active" onclick="showCategory('hackathons')">
           <div class="button-content">
-            <span class="button-text">Events</span>
+            <span class="button-text">Top Hackathons</span>
           </div>
         </button>
-        <button class="toggle-button" onclick="showCategory('hackathons')">
+        <button class="toggle-button" onclick="showCategory('events')">
           <div class="button-content">
-            <span class="button-text">Hackathons</span>
+            <span class="button-text">Top Events</span>
           </div>
         </button>
       </div>
 
-      <h2>Locations</h2>
+      <!-- <h2>Locations</h2> -->
 
       <!-- Events -->
-      <div id="events-locations" class="location-list">
+      <div id="events-locations" class="location-list hidden">
         <button class="location-button" onclick="showLocation('HackUNCP 2024', 40.80816395, -73.96218685)">
           <div class="location-info">
             <img
@@ -68,21 +88,8 @@
         <!-- Additional location buttons... -->
       </div>
 
-
       <!-- Hackathons -->
-      <div id="hackathons-locations" class="location-list hidden">
-        <button class="location-button" onclick="showLocation('HackUNCP 2024', 42.45015615, -76.47595755)">
-          <div class="location-info">
-            <img
-              src="https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/003/020/931/datas/medium_square.jpg"
-              alt="HackUNCP 2024" class="location-image" />
-            <div class="location-details">
-              <h3 class="location-name">HackUNCP 2024</h3>
-              <p class="location-date">November 15, 2023</p>
-            </div>
-          </div>
-        </button>
-
+      <div id="hackathons-locations" class="location-list">
         <button class="location-button" onclick="showLocation('BevHacks 2025', 40.861690149999994, -73.8857707)">
           <div class="location-info">
             <img
@@ -90,6 +97,46 @@
               alt="BevHacks 2025" class="location-image" />
             <div class="location-details">
               <h3 class="location-name">BevHacks 2025</h3>
+              <p class="location-date">November 15, 2023</p>
+            </div>
+          </div>
+        </button>
+
+        <button class="location-button"
+        onclick="showLocation('Google Photorealistic 3D Maps', 48.1406224, 11.582847)">
+        <div class="location-info">
+          <img
+            src="https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/003/043/057/datas/medium_square.jpg"
+            alt="hackUMBC Fall 2024" class="location-image" />
+          <div class="location-details">
+            <h3 class="location-name">
+              Google Photorealistic 3D Maps
+            </h3>
+            <p class="location-date">November 15, 2023</p>
+          </div>
+        </div>
+      </button>
+
+
+      <button class="location-button" onclick="showLocation('GitHub Copilot', 40.72927185000001, -73.99674225000001)">
+        <div class="location-info">
+          <img
+            src="https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/003/095/055/datas/medium_square.png"
+            alt="hackUMBC Fall 2024" class="location-image" />
+          <div class="location-details">
+            <h3 class="location-name">GitHub Copilot</h3>
+            <p class="location-date">November 15, 2023</p>
+          </div>
+        </div>
+      </button>
+
+        <button class="location-button" onclick="showLocation('HackUNCP 2024', 42.45015615, -76.47595755)">
+          <div class="location-info">
+            <img
+              src="https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/003/020/931/datas/medium_square.jpg"
+              alt="HackUNCP 2024" class="location-image" />
+            <div class="location-details">
+              <h3 class="location-name">HackUNCP 2024</h3>
               <p class="location-date">November 15, 2023</p>
             </div>
           </div>
@@ -136,6 +183,50 @@
           </div>
         </button>
 
+
+
+
+        <button class="location-button"
+          onclick="showLocation('Red Hat and Intel AI Hackathon', 40.72927185000001, -73.99674225000001)">
+          <div class="location-info">
+            <img
+              src="https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/002/998/155/datas/medium_square.png"
+              alt="hackUMBC Fall 2024" class="location-image" />
+            <div class="location-details">
+              <h3 class="location-name">
+                Red Hat and Intel AI Hackathon
+              </h3>
+              <p class="location-date">November 15, 2023</p>
+            </div>
+          </div>
+        </button>
+
+        <button class="location-button"
+          onclick="showLocation('Lightning Fast AI Hackathon', 40.72927185000001, -73.99674225000001)">
+          <div class="location-info">
+            <img
+              src="https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/003/041/786/datas/medium_square.jpg"
+              alt="hackUMBC Fall 2024" class="location-image" />
+            <div class="location-details">
+              <h3 class="location-name">
+                Lightning Fast AI Hackathon
+              </h3>
+              <p class="location-date">November 15, 2023</p>
+            </div>
+          </div>
+        </button>
+
+        <button class="location-button" onclick="showLocation('HackEPS 2024', 40.72927185000001, -73.99674225000001)">
+          <div class="location-info">
+            <img
+              src="https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/003/106/152/datas/medium_square.jpg"
+              alt="hackUMBC Fall 2024" class="location-image" />
+            <div class="location-details">
+              <h3 class="location-name">HackEPS 2024</h3>
+              <p class="location-date">Upcoming</p>
+            </div>
+          </div>
+        </button>
       </div>
     </div>
 
@@ -146,63 +237,78 @@
   <div id="popupOverlay" class="popup-overlay hidden">
     <div class="popup" id="popup">
       <button class="close-btn" onclick="closePopup()">×</button>
-      <img
-        src="https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/003/034/787/datas/medium_square.png"
-        alt="ZenHack 2024" class="header-image" />
-
-      <h1 class="title">ZenHack 2024</h1>
-      <p class="subtitle">
-        Empowering the next generation of high school innovators
-      </p>
-
-      <div class="section">
-        <div class="section-title">
-          <span>📋 About</span>
+      <div class="popup-content">
+        <div class="left-column">
+          <img
+            src="https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/003/034/787/datas/medium_square.png"
+            alt="ZenHack 2024" class="header-image" />
+          <h1 class="title">ZenHack 2024</h1>
+          <p class="subtitle">
+            Empowering the next generation of high school
+            innovators
+          </p>
         </div>
-        <p style="color: #d4d4d8; line-height: 1.6">
-          We're Zenith, an organization dedicated to promoting the
-          next generation of innovators. This hackathon is
-          designed to give high school students a hands-on
-          experience in building real-world projects, guided by
-          industry professional mentors. Join us for an exciting
-          weekend of coding, creativity, and free food!
-        </p>
+        <div class="right-column">
+          <div class="section">
+            <div class="section-title">📋 About</div>
+            <p class="section-text">
+              We're Zenith, promoting the next generation of
+              innovators. ZenHack offers high school students
+              a chance to work on real-world projects, guided
+              by industry experts.
+            </p>
+          </div>
+
+          <div class="section">
+            <div class="section-title">🎯 Event Details</div>
+            <div class="info-grid">
+              <div class="info-item">
+                <span class="info-label">Date:</span>
+                <span class="info-value">March 15-17, 2024</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Duration:</span>
+                <span class="info-value">48 Hours</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Format:</span>
+                <span class="info-value">In-person</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Team Size:</span>
+                <span class="info-value">2-4 members</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="section">
+            <div class="section-title">🏆 Prizes</div>
+            <p class="section-text">
+              Win exclusive mentorship, cutting-edge gadgets,
+              and cash prizes up to $5000.
+            </p>
+          </div>
+
+          <div class="section">
+            <div class="section-title">📌 Eligibility</div>
+            <ul class="eligibility-list">
+              <li>High school students (ages 14-18)</li>
+              <li>No prior experience required</li>
+              <li>Must attend the entire 48-hour event</li>
+            </ul>
+          </div>
+
+          <button class="join-button" onclick="joinHackathon()">
+            Join ZenHack 2024
+          </button>
+        </div>
       </div>
-
-      <div class="section">
-        <div class="section-title">
-          <span>🎯 Event Details</span>
-        </div>
-        <div class="info-grid">
-          <div class="info-item">
-            <div class="info-label">Date</div>
-            <div class="info-value">March 15-17, 2024</div>
-          </div>
-          <div class="info-item">
-            <div class="info-label">Duration</div>
-            <div class="info-value">48 Hours</div>
-          </div>
-          <div class="info-item">
-            <div class="info-label">Format</div>
-            <div class="info-value">In-person</div>
-          </div>
-          <div class="info-item">
-            <div class="info-label">Team Size</div>
-            <div class="info-value">2-4 members</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Add more sections as needed -->
-
-      <button class="join-button" onclick="joinHackathon()">
-        Join ZenHack 2024
-      </button>
     </div>
   </div>
 
-  <!-- <button class="show-popup-btn" onclick="showPopup()">Show Popup</button> -->
-
+  <button class="show-popup-btn hidden" onclick="showPopup()">
+    Hackathon details
+  </button>
 
   <script>
     ((g) => {
@@ -247,7 +353,7 @@
         : (d[l] = (f, ...n) =>
           r.add(f) && u().then(() => d[l](f, ...n)));
     })({
-      key: "",
+      key: "AIzaSyC3txE9pHsc0aGdlvZTxfm6dMwsKsZGl1w",
       v: "alpha",
       // Use the 'v' parameter to indicate the version to use (weekly, beta, alpha, etc.).
       // Add other bootstrap parameters as needed, using camel case.
