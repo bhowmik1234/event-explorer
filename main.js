@@ -220,103 +220,6 @@ async function initAutocomplete() {
     });
 }
 
-// const zoomToViewport = async (geometry, name, lat, lng) => {
-//     const { AltitudeMode, Marker3DElement } = await google.maps.importLibrary(
-//         "maps3d"
-//     );
-//     const viewport = geometry.viewport;
-//     map3DElement.tilt = 67.5;
-
-//     // Remove previous marker and polygon if they exist
-//     if (currentMarker) {
-//         map3DElement.removeChild(currentMarker);
-//     }
-//     if (currentPolygon) {
-//         map3DElement.removeChild(currentPolygon);
-//     }
-
-//     // Center point for placing the marker
-//     const centerLat =
-//         (viewport.getNorthEast().lat() + viewport.getSouthWest().lat()) / 2;
-//     const centerLng =
-//         (viewport.getNorthEast().lng() + viewport.getSouthWest().lng()) / 2;
-//     const centerPoint = { lat: centerLat, lng: centerLng };
-
-//     // Calculate hexagon coordinates
-//     const radiusInMeters = 400;
-//     const earthRadius = 6371000;
-
-//     const hexagonCoordinates = Array.from({ length: 6 }, (_, i) => {
-//         const angle = i * 60 * (Math.PI / 180);
-//         const dLat = (radiusInMeters / earthRadius) * Math.cos(angle);
-//         const dLng =
-//             (radiusInMeters /
-//                 (earthRadius * Math.cos((centerLat * Math.PI) / 180))) *
-//             Math.sin(angle);
-
-//         return {
-//             lat: centerLat + dLat * (180 / Math.PI),
-//             lng: centerLng + dLng * (180 / Math.PI),
-//         };
-//     });
-
-//     // Create a polygon element for the hexagon
-//     const polygonElement = document.createElement("gmp-polygon-3d");
-//     polygonElement.setAttribute("height", "100");
-//     polygonElement.setAttribute("altitude-mode", "clamp-to-ground");
-//     polygonElement.setAttribute("stroke-color", "#ffa500"); // Outline color
-//     polygonElement.setAttribute("stroke-width", "20");
-//     polygonElement.setAttribute("fill-color", "none");
-
-//     customElements.whenDefined(polygonElement.localName).then(() => {
-//         polygonElement.outerCoordinates = [
-//             ...hexagonCoordinates,
-//             hexagonCoordinates[0],
-//         ];
-//     });
-
-//     map3DElement.append(polygonElement);
-//     currentPolygon = polygonElement;
-
-//     // Add a marker at the center point
-//     const elevation = await getElevationforPoint(centerPoint);
-//     const marker = new Marker3DElement({
-//         position: { lat: centerLat, lng: centerLng, altitude: elevation },
-//     });
-//     map3DElement.append(marker);
-//     currentMarker = marker;
-
-//     // Retrieve lat and lng, handling both cases of function or direct value
-//     const latitude =
-//         typeof geometry.location.lat === "function"
-//             ? geometry.location.lat()
-//             : geometry.location.lat;
-//     const longitude =
-//         typeof geometry.location.lng === "function"
-//             ? geometry.location.lng()
-//             : geometry.location.lng;
-
-//     // Smooth zoom-in effect to center and target altitude
-//     const targetAltitude = 1000;
-//     let currentAltitude = 160000;
-//     const zoomStep = 500;
-//     const zoomInterval = 5; // Time for zoom
-
-//     const zoomIn = setInterval(() => {
-//         if (currentAltitude > targetAltitude) {
-//             currentAltitude -= zoomStep;
-//             map3DElement.center = {
-//                 lat: latitude,
-//                 lng: longitude,
-//                 altitude: currentAltitude,
-//             };
-//         } else {
-//             clearInterval(zoomIn); // Stop zoom interval
-//             // setTimeout(() => showPopup(name, lat, lng), 1000);
-//             popbutton(name);
-//         }
-//     }, zoomInterval);
-// };
 const zoomToViewport = async (geometry, name, lat, lng) => {
     const { AltitudeMode, Model3DElement } = await google.maps.importLibrary("maps3d");
     const viewport = geometry.viewport;
@@ -386,10 +289,10 @@ const zoomToViewport = async (geometry, name, lat, lng) => {
     // Add a 3D model at the center point
     const elevation = await getElevationforPoint(centerPoint);
     const model = new Model3DElement({
-        src: "diamond.glb", // Replace with the path to your GLB model
+        src: "diamond.glb",
         position: { lat: centerLat, lng: centerLng, altitude: elevation + 100 },
-        orientation: { tilt: 270 }, // Initial tilt or heading
-        scale: 220, // Adjust the scale as needed
+        orientation: { tilt: 270 }, 
+        scale: 220,
         altitudeMode: "ABSOLUTE",
     });
     map3DElement.append(model);
@@ -398,16 +301,16 @@ const zoomToViewport = async (geometry, name, lat, lng) => {
     // Continuous spinning animation
     let angle = 0;
     const spinModel = () => {
-        angle += 1; // Increment angle for continuous spinning
-        if (angle >= 360) angle = 0; // Reset angle after full rotation
+        angle += 1; 
+        if (angle >= 360) angle = 0;
         
         model.orientation = {
-            tilt: 270,  // Keeping the tilt constant, you can also animate this if desired
-            heading: angle,  // Rotate the model by adjusting the heading
+            tilt: 270, 
+            heading: angle,  
         };
-        requestAnimationFrame(spinModel); // Continue the animation
+        requestAnimationFrame(spinModel); 
     };
-    spinModel(); // Start the spinning
+    spinModel(); 
 
     // Smooth zoom-in effect to center and target altitude
     const targetAltitude = 1000;
@@ -424,11 +327,11 @@ const zoomToViewport = async (geometry, name, lat, lng) => {
                 altitude: currentAltitude,
             };
         } else {
-            clearInterval(zoomIn); // Stop zoom interval
-            // Optional: Show popup after zoom
+            clearInterval(zoomIn); 
             popbutton(name);
         }
     }, zoomInterval);
+    closeSidebar();
 };
 
 
@@ -535,5 +438,28 @@ function showLocation(name, lat, lng) {
         lng
     );
 }
+
+function togglesidebar(){
+    const sidebar = document.getElementById("sidebar");
+    const toggleButton = document.getElementById("toggle-sidebar");
+  
+    // Show the sidebar
+    sidebar.classList.add("show-sidebar");
+    // toggleButton.classList.add("hidden");
+  
+    // Hide the toggle button
+    // toggleButton.classList.add("hidden");
+}
+
+function closeSidebar() {
+    const sidebar = document.getElementById("sidebar");
+    const toggleButton = document.getElementById("toggle-sidebar");
+  
+    // Hide the sidebar
+    sidebar.classList.remove("show-sidebar");
+  
+    // Show the toggle button
+    // toggleButton.classList.remove("hidden");
+  }
 
 init();
