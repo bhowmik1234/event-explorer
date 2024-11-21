@@ -521,7 +521,7 @@ body {
   .show-sidebar {
     display: block !important;
     overflow: scroll;
-    width: 400px !important;
+    /* width: 400px !important; */
     /* transform: translateX(300px); */
   }
 
