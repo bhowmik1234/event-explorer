@@ -331,7 +331,7 @@ const zoomToViewport = async (geometry, name, lat, lng) => {
             popbutton(name);
         }
     }, zoomInterval);
-    closeSidebar();
+    // closeSidebar();
 };
 
 
@@ -439,27 +439,27 @@ function showLocation(name, lat, lng) {
     );
 }
 
-function togglesidebar(){
-    const sidebar = document.getElementById("sidebar");
-    const toggleButton = document.getElementById("toggle-sidebar");
+// function togglesidebar(){
+//     const sidebar = document.getElementById("sidebar");
+//     const toggleButton = document.getElementById("toggle-sidebar");
   
-    // Show the sidebar
-    sidebar.classList.add("show-sidebar");
-    // toggleButton.classList.add("hidden");
+//     // Show the sidebar
+//     sidebar.classList.add("show-sidebar");
+//     // toggleButton.classList.add("hidden");
   
-    // Hide the toggle button
-    // toggleButton.classList.add("hidden");
-}
+//     // Hide the toggle button
+//     // toggleButton.classList.add("hidden");
+// }
 
-function closeSidebar() {
-    const sidebar = document.getElementById("sidebar");
-    const toggleButton = document.getElementById("toggle-sidebar");
+// function closeSidebar() {
+//     const sidebar = document.getElementById("sidebar");
+//     const toggleButton = document.getElementById("toggle-sidebar");
   
-    // Hide the sidebar
-    sidebar.classList.remove("show-sidebar");
+//     // Hide the sidebar
+//     sidebar.classList.remove("show-sidebar");
   
-    // Show the toggle button
-    // toggleButton.classList.remove("hidden");
-  }
+//     // Show the toggle button
+//     // toggleButton.classList.remove("hidden");
+//   }
 
 init();
